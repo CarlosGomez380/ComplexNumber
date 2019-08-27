@@ -1,13 +1,13 @@
-#Libreria de numeros complejos
+# Libreria de numeros complejos
 
 ## How to install:
 First at all, check out java and maven are downloaded and installed in your PC.
-Then clone this repository with the command 'git clone[repository's link]' in the path that you want to save it.
+Then clone this repository with the command ­´git clone[repository's link]­´ in the path that you want to save it.
 Afterwards, compile and install it with the next commands
-mvn package
-mvn install
+­´mvn package­´
+­´mvn install­´
 
-##Execute tests:
+## Execute tests:
 For executing testd follow the command
 'mvn test'
 
