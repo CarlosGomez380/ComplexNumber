@@ -1,6 +1,17 @@
 #Libreria de numeros complejos
 
-## Funciones para numeros complejos
+## How to install:
+First at all, check out java and maven are downloaded and installed in your PC.
+Then clone this repository with the command 'git clone[repository's link]' in the path that you want to save it.
+Afterwards, compile and install it with the next commands
+mvn package
+mvn install
+
+##Execute tests:
+For executing testd follow the command
+'mvn test'
+
+## Complex Numbers Functions:
 
 1. PHASE: Calculate the phase of a complex number.
 2. MODULUS: Calculate the modulus of a complex number.
@@ -11,7 +22,7 @@
 7. MULTIPLICATION: Make multiplication of two complex numbers.
 8. DIVISION: Make division of two complex numbers.
 
-## Funciones para matrices complejas
+## Complex Matrix Functions:
 
 1. TRANSPOSE: Make transpose of a matrix
 2. CONJUGATE: Make conjugate of a matrix
