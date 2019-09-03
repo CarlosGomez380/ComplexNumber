@@ -8,15 +8,21 @@ public class MatrixMath {
      * @param matrix1 First matrix to add.
      * @param matrix2 Second matrix to add.
      * @return Answer of the addition of matrix1 and matrix2.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
-    public static ComplexMatrix addMatrix(ComplexMatrix matrix1,ComplexMatrix matrix2){
-        ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix1.getColumn());
-        for (int i=0; i<matrix1.getRow(); i++){
-            for (int j=0;j<matrix1.getColumn();j++){
-                answ.setMatrix(i,j,ComplexMath.add(matrix1.getMatrix(i,j),matrix2.getMatrix(i,j)));
+    public static ComplexMatrix addMatrix(ComplexMatrix matrix1,ComplexMatrix matrix2) throws ComplexException{
+        if(matrix1.getRow()== matrix2.getRow() && matrix1.getColumn() == matrix2.getColumn()){
+            ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix1.getColumn());
+            for (int i=0; i<matrix1.getRow(); i++){
+                for (int j=0;j<matrix1.getColumn();j++){
+                    answ.setMatrix(i,j,ComplexMath.add(matrix1.getMatrix(i,j),matrix2.getMatrix(i,j)));
+                }
             }
+            return answ;
         }
-        return answ;
+        else{
+            throw new ComplexException("Both matrices have different dimesions");
+        }
     }
     
     /**
@@ -25,22 +31,28 @@ public class MatrixMath {
      * @param matrix1 First matrix to subtract.
      * @param matrix2 Second matrix to subtract.
      * @return Answer of the subtraction of matrix1 and matrix2.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
-    public static ComplexMatrix subtractionMatrix(ComplexMatrix matrix1,ComplexMatrix matrix2){
-        ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix1.getColumn());
-        for (int i=0; i<matrix1.getRow(); i++){
-            for (int j=0;j<matrix1.getColumn();j++){
-                answ.setMatrix(i,j,ComplexMath.subtraction(matrix1.getMatrix(i,j),matrix2.getMatrix(i,j)));
+    public static ComplexMatrix subtractionMatrix(ComplexMatrix matrix1,ComplexMatrix matrix2)throws ComplexException{
+        if(matrix1.getRow()== matrix2.getRow() && matrix1.getColumn() == matrix2.getColumn()){
+            ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix1.getColumn());
+            for (int i=0; i<matrix1.getRow(); i++){
+                for (int j=0;j<matrix1.getColumn();j++){
+                    answ.setMatrix(i,j,ComplexMath.subtraction(matrix1.getMatrix(i,j),matrix2.getMatrix(i,j)));
+                }
             }
+            return answ;
         }
-        return answ;
+        else{
+            throw new ComplexException("Both matrices have different dimesions");
+        }
     }
     
     /**
      * Make scalar multiplication between a complex and a matrix.
      * 
      * @param matrix Matrix to do the scalar multiplication.
-     * @param c Complex to do the scalar multiplication.
+     * @param c Complex to do the scalar
      * @return Answer of the scalar multiplication.
      */
     public static ComplexMatrix scalarMultiplication(ComplexMatrix matrix,Complex c){
@@ -51,5 +63,120 @@ public class MatrixMath {
             }
         }
         return answ;
+    }
+    
+    /**
+     * Make subtraction of two complex Matrices.
+     * 
+     * @param matrix1 First matrix to subtract.
+     * @param matrix2 Second matrix to subtract.
+     * @return Answer of the multiplication of matrix1 and matrix2.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
+     */
+    public static ComplexMatrix multiplicationMatrix(ComplexMatrix matrix1,ComplexMatrix matrix2)throws ComplexException{
+        if(matrix1.getColumn() == matrix2.getRow()){
+            ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix2.getColumn());
+            for (int i=0; i<matrix1.getRow(); i++){
+                for (int j=0;j<matrix2.getColumn();j++){
+		    answ.setMatrix(i,j, new Complex(0,0));
+                    for (int k=0; k< matrix2.getRow();k++){
+                        answ.setMatrix(i,j,ComplexMath.add(answ.getMatrix(i,j),
+                                ComplexMath.multiplication(matrix1.getMatrix(i,k),matrix2.getMatrix(k,j))));
+                    }
+                }
+            }
+            return answ;
+        }
+        else{
+            throw new ComplexException("Both matrices have different dimesions");
+        }
+    }
+    
+    /**
+     * Make subtraction of two complex Matrices.
+     * 
+     * @param matrix1 First matrix to subtract.
+     * @param matrix2 Second matrix to subtract.
+     * @return a Complex of the innerProduct of matrix1 and matrix2.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
+     */
+    public static Complex innerProduct(ComplexMatrix matrix1,ComplexMatrix matrix2)throws ComplexException{
+	Complex res= new Complex(0,0);
+        if(matrix1.isVector()==true && matrix2.isVector()==true){
+		matrix1.adjoint();
+		ComplexMatrix answ = multiplicationMatrix(matrix1,matrix2);
+		for (int i=0; i<answ.getRow(); i++){
+                	for (int j=0;j<answ.getColumn();j++){
+				res= ComplexMath.add(res,answ.getMatrix(i,j));
+			}
+		}
+		return res;		
+	}
+	else if (matrix1.getRow()==matrix1.getColumn() && matrix2.getRow()==matrix2.getColumn() && matrix1.getRow()==matrix2.getColumn()){
+		matrix1.adjoint();
+		ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix2.getColumn());
+		answ=multiplicationMatrix(matrix1,matrix2);
+		for (int i=0; i<matrix1.getRow(); i++){
+			for (int j=0; j<matrix1.getColumn(); j++){
+				res= ComplexMath.add(res,answ.getMatrix(i,j));
+			}
+		}
+		return res;
+	}
+	else{
+		throw new ComplexException("Both matrices have different dimesions");
+	}
+    }
+ 
+    /**
+     * Gives the norm of the vector.
+     * @param matrix complex matrix
+     * @return The norm of the vector.
+     * @throws ComplexException
+     */
+    public static Complex norm(ComplexMatrix matrix) throws ComplexException{
+	Complex answ= new Complex(0,0);
+	ComplexMatrix matrix2= new ComplexMatrix(matrix.getRow(),matrix.getColumn());
+	for (int i=0; i<matrix.getRow(); i++){
+		for (int j=0; j<matrix.getColumn(); j++){
+			matrix2.setMatrix(i,j,matrix.getMatrix(i,j));
+		}
+	}
+	
+	answ = innerProduct(matrix,matrix2);
+	answ.setReal(Math.sqrt(answ.getReal()));
+	return answ;
+    }
+
+    /**
+     * Gives the distance between two matrices.
+     * @param matrix1 complex matrix
+     * @param matrix2 complex matrix
+     * @return The distance between two matrices.
+     * @throws ComplexException
+     */
+    public static Complex distanceMatrix(ComplexMatrix matrix1, ComplexMatrix matrix2) throws ComplexException{
+	ComplexMatrix matrix3= subtractionMatrix(matrix1,matrix2);
+	return norm(matrix3);
+    }
+
+    /**
+     * Return the tensor product between two complex matrices.
+     * @param a complex matrix
+     * @param b complex matrix
+     * @return tensor product between a and b.
+     */
+    public static ComplexMatrix tensorProduct(ComplexMatrix matrix1, ComplexMatrix matrix2){
+        ComplexMatrix answer= new ComplexMatrix(matrix1.getRow()*matrix2.getRow(),matrix1.getColumn()*matrix2.getColumn());
+        for (int row1 = 0; row1 < matrix1.getRow(); row1++) {
+            for (int column1 = 0; column1 < matrix1.getColumn(); column1++) {
+                for (int row2 = 0; row2 < matrix2.getRow(); row2++) {
+                    for (int column2 = 0; column2 < matrix2.getColumn(); column2++) {
+                        answer.setMatrix(row1*matrix2.getRow()+row2,column1*matrix2.getColumn()+column2,ComplexMath.multiplication(matrix1.getMatrix(row1,column1),matrix2.getMatrix(row2,column2)));
+                    }
+                }
+            }
+        }
+        return answer;
     }
 }

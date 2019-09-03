@@ -19,25 +19,35 @@ public class ComplexMatrix {
         this.column = column;
         matrix = new Complex[row][column];
     }
+
+    /**
+     * Complex matrix constructor
+     * @param matrix Static Matrix with complex numbers in it.
+     */
+    public ComplexMatrix(Complex[][] matrix) {
+        this.matrix = matrix;
+    }
     
     /*
     * Make transpose of a matrix
     */
     public void transpose(){
-        Complex[][] matrixT = new Complex[matrix[0].length][matrix.length];
+	   Complex[][] matrixT = new Complex[column][row];
         for (int i=0; i<row; i++){
-            for (int j=i+1;j<column;j++){
-                 matrixT[column][row] = matrix[row][column];
+            for (int j=0;j<column;j++){
+                 matrixT[j][i] = matrix[i][j];
             }
         }
         matrix = matrixT;
+	  int saver=row;
+	  setRow(column);
+	  setColumn(saver);
     }
     
     /*
     *Make conjugate of a matrix
     */
     public void conjugateMatrix(){
-        System.out.println(column);
         for (int i=0; i<row; i++){
             for (int j=0;j<column;j++){
                matrix[i][j].conjugate(); 
@@ -49,24 +59,49 @@ public class ComplexMatrix {
     *Make adjoint of a matrix
     */
     public void adjoint(){
-        transpose();
-        conjugateMatrix();
+        this.transpose();
+        this.conjugateMatrix();
     }
     
+    public boolean isVector(){
+        return (column == 1 || row == 1) && column!= row;
+    }
+
     /**
-     * @return Number of columns
+     * Answers if the matrix is an hermitian one.
+     * @return true if the matrix is hermitian, false if not.
      */
-    public int columnLength() {
-        return matrix[0].length;
+    public boolean isHermitian(){
+        ComplexMatrix a = new ComplexMatrix(matrix);
+        a.adjoint();
+        return this.equals(a);
     }
-    
+
     /**
-     * @return Number of rows
+     * Returns if the matrix is unitary or not.
+     * @return true if the matrix is unitary, false if not.
+     * @throws MathComplexException
      */
-    public int rowLength() {
-        return matrix.length;
+    public boolean isUnitary() throws ComplexException {
+        if(getColumn()!=getRow()){
+            return false;
+        }else{
+            ComplexMatrix a = new ComplexMatrix(matrix);
+            a.adjoint();
+            ComplexMatrix m =MatrixMath.multiplicationMatrix(this,a);
+            if(m.equals(MatrixMath.multiplicationMatrix(a,this))){
+                for (int  i= 0; row < m.getRow(); i++) {
+                    for (int j= 0; j< m.getColumn(); j++) {
+                        if((i==j && !m.getMatrix(i, j).equals(new Complex(1, 0))) || (row!=column && !m.getMatrix(i,j).equals(new Complex(0, 0)))){
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }else{return false;}
+        }
     }
-    
+
     /**
      * @return the number of rows.
      */
@@ -84,7 +119,7 @@ public class ComplexMatrix {
     }
     
     /**
-     * @return the number of column.
+     * @return the number of columns.
      */
     public int getColumn() {
         return column;
@@ -139,7 +174,7 @@ public class ComplexMatrix {
     @Override
     public boolean equals(Object o) {
         if (o instanceof ComplexMatrix) {
-            if(((ComplexMatrix) o).columnLength()!=columnLength() || ((ComplexMatrix) o).rowLength()!=rowLength()){
+            if(((ComplexMatrix) o).getColumn()!=getColumn() || ((ComplexMatrix) o).getRow()!=getRow()){
                 return false;
             }
             for (int row = 0; row < matrix.length; row++) {

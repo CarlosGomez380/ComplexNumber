@@ -33,7 +33,7 @@ public class MatrixMathTest {
      * Test of addMatrix method, of class MatrixMath.
      */
     @Test
-    public void testAddMatrix() {
+    public void testAddMatrix() throws ComplexException{
         ComplexMatrix a =new ComplexMatrix(4,1);
         a.setMatrix(0,0,new Complex(6,-4));
         a.setMatrix(1,0,new Complex(7,3));
@@ -56,7 +56,7 @@ public class MatrixMathTest {
      * Test of subtractionMatrix method, of class MatrixMath.
      */
     @Test
-    public void testSubtractionMatrix_ComplexMatrix_ComplexMatrix() {
+    public void testSubtractionMatrix() throws ComplexException{
         ComplexMatrix a =new ComplexMatrix(4,1);
         a.setMatrix(0,0,new Complex(5,3));
         a.setMatrix(1,0,new Complex(7,3));
@@ -76,10 +76,10 @@ public class MatrixMathTest {
     }
 
     /**
-     * Test of subtractionMatrix method, of class MatrixMath.
+     * Test of scalarProduct method, of class MatrixMath.
      */
     @Test
-    public void testSubtractionMatrix_ComplexMatrix_Complex() {
+    public void testScalarMultiplicationMatrix() {
         ComplexMatrix a =new ComplexMatrix(4,1);
         a.setMatrix(0,0,new Complex(6,3));
         a.setMatrix(1,0,new Complex(0,0));
@@ -93,5 +93,108 @@ public class MatrixMathTest {
         c.setMatrix(3,0,new Complex(12,8));
         assertEquals(MatrixMath.scalarMultiplication(a,b),c);
     }
+
+    /**
+     * Test of MultiplicationMatrix method, of class MatrixMath.
+     */
+    @Test
+    public void testMultiplicactionMatrix() throws ComplexException{
+        ComplexMatrix a =new ComplexMatrix(3,3);
+        a.setMatrix(0,0,new Complex(3,2));
+        a.setMatrix(0,1,new Complex(0,0));
+        a.setMatrix(0,2,new Complex(5,-6));
+        a.setMatrix(1,0,new Complex(1,0));
+	a.setMatrix(1,1,new Complex(4,2));
+	a.setMatrix(1,2,new Complex(0,1));
+	a.setMatrix(2,0,new Complex(4,-1));
+	a.setMatrix(2,1,new Complex(0,0));
+	a.setMatrix(2,2,new Complex(4,0));
+        ComplexMatrix b= new ComplexMatrix(3,3);
+	b.setMatrix(0,0,new Complex(5,0));
+        b.setMatrix(0,1,new Complex(2,-1));
+        b.setMatrix(0,2,new Complex(6,-4));
+        b.setMatrix(1,0,new Complex(0,0));
+	b.setMatrix(1,1,new Complex(4,5));
+	b.setMatrix(1,2,new Complex(2,0));
+	b.setMatrix(2,0,new Complex(7,-4));
+	b.setMatrix(2,1,new Complex(2,7));
+	b.setMatrix(2,2,new Complex(0,0));
+        ComplexMatrix c =new ComplexMatrix(3,3);
+        c.setMatrix(0,0,new Complex(26,-52));
+        c.setMatrix(0,1,new Complex(60,24));
+        c.setMatrix(0,2,new Complex(26,0));
+        c.setMatrix(1,0,new Complex(9,7));
+	c.setMatrix(1,1,new Complex(1,29));
+	c.setMatrix(1,2,new Complex(14,0));
+	c.setMatrix(2,0,new Complex(48,-21));
+	c.setMatrix(2,1,new Complex(15,22));
+	c.setMatrix(2,2,new Complex(20,-22));
+        assertEquals(MatrixMath.multiplicationMatrix(a,b),c);
+    }
     
+    /**
+     * Test of innerProduct method, of class MatrixMath.
+     */
+    @Test
+    public void testInnerProduct() throws ComplexException{
+        ComplexMatrix a =new ComplexMatrix(3,1);
+	a.setMatrix(0,0,new Complex(5,0));
+        a.setMatrix(1,0,new Complex(3,0));
+        a.setMatrix(2,0,new Complex(-7,0));
+	ComplexMatrix b =new ComplexMatrix(3,1);
+	b.setMatrix(0,0,new Complex(6,0));
+        b.setMatrix(1,0,new Complex(2,0));
+        b.setMatrix(2,0,new Complex(0,0));
+	Complex c= new Complex(36,0);
+	assertEquals(c,MatrixMath.innerProduct(a,b));
+    }
+
+    /**
+     * Test of norm method, of class ComplexMatrix.
+     */
+    @Test
+    public void testnorm() throws ComplexException{
+	ComplexMatrix a =new ComplexMatrix(3,1);
+        a.setMatrix(0,0,new Complex(3,0));
+        a.setMatrix(1,0,new Complex(-6,0));
+        a.setMatrix(2,0,new Complex(2,0));
+	Complex c= new Complex(7,0);
+        assertEquals(MatrixMath.norm(a),c);
+    }
+
+    /**
+     * Test of distanceMatrix method, of class ComplexMatrix.
+     */
+    @Test
+    public void testDistanceMatrix() throws ComplexException{
+	ComplexMatrix a =new ComplexMatrix(3,1);
+        a.setMatrix(0,0,new Complex(3,0));
+        a.setMatrix(1,0,new Complex(1,0));
+        a.setMatrix(2,0,new Complex(2,0));
+	ComplexMatrix b =new ComplexMatrix(3,1);
+        b.setMatrix(0,0,new Complex(2,0));
+        b.setMatrix(1,0,new Complex(2,0));
+        b.setMatrix(2,0,new Complex(-1,0));
+	Complex c= new Complex(Math.sqrt(11),0);
+        assertEquals(MatrixMath.distanceMatrix(a,b),c);
+    }
+
+    @Test
+    public void testTensorProduct() {
+        ComplexMatrix a =new ComplexMatrix(2,1);
+        a.setMatrix(0,0,new Complex(2,0));
+        a.setMatrix(1,0,new Complex(3,0));
+        ComplexMatrix b =new ComplexMatrix(3,1);
+        b.setMatrix(0,0,new Complex(4,0));
+        b.setMatrix(1,0,new Complex(6,0));
+        b.setMatrix(2,0,new Complex(3,0));
+        ComplexMatrix c =new ComplexMatrix(6,1);
+        c.setMatrix(0,0,new Complex(8,0));
+        c.setMatrix(1,0,new Complex(12,0));
+        c.setMatrix(2,0,new Complex(6,0));
+        c.setMatrix(3,0,new Complex(12,0));
+        c.setMatrix(4,0,new Complex(18,0));
+        c.setMatrix(5,0,new Complex(9,0));
+        assertEquals(MatrixMath.tensorProduct(a, b), c);
+    }
 }
