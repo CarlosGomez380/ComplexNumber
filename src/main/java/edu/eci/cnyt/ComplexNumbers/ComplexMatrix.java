@@ -25,7 +25,6 @@ public class ComplexMatrix {
      * @param matrix Static Matrix with complex numbers in it.
      */
     public ComplexMatrix(Complex[][] matrix1) {
-	System.out.println(matrix1[1][0]);
 	row= matrix1.length;
 	column= matrix1[0].length;
 	matrix= new Complex[matrix1.length][matrix1[0].length];
@@ -84,13 +83,6 @@ public class ComplexMatrix {
     public boolean isHermitian(){
         ComplexMatrix a = new ComplexMatrix(matrix);
         a.adjoint();
-	System.out.println(a.getMatrix(0,1));
-	System.out.println(this.getMatrix(0,1));
-	System.out.println(this.getMatrix(0,0));
-	System.out.println(a.getMatrix(0,0));
-	System.out.println(this.getMatrix(1,1));
-	System.out.println(a.getMatrix(1,1));
-	System.out.println(this.equals(a));
         return this.equals(a);
     }
 
