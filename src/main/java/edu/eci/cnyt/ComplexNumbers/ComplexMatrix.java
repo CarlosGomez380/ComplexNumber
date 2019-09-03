@@ -24,24 +24,34 @@ public class ComplexMatrix {
      * Complex matrix constructor
      * @param matrix Static Matrix with complex numbers in it.
      */
-    public ComplexMatrix(Complex[][] matrix) {
-        this.matrix = matrix;
+    public ComplexMatrix(Complex[][] matrix1) {
+	System.out.println(matrix1[1][0]);
+	row= matrix1.length;
+	column= matrix1[0].length;
+	matrix= new Complex[matrix1.length][matrix1[0].length];
+	for (int i=0; i<row; i++){
+            for (int j=0;j<column;j++){
+		matrix[i][j]= new Complex(0,0);
+		matrix[i][j].setReal(matrix1[i][j].getReal());
+		matrix[i][j].setImag(matrix1[i][j].getImag());
+            }
+        }
     }
     
     /*
     * Make transpose of a matrix
     */
     public void transpose(){
-	   Complex[][] matrixT = new Complex[column][row];
+	Complex[][] matrixT = new Complex[column][row];
         for (int i=0; i<row; i++){
             for (int j=0;j<column;j++){
                  matrixT[j][i] = matrix[i][j];
             }
         }
         matrix = matrixT;
-	  int saver=row;
-	  setRow(column);
-	  setColumn(saver);
+	int saver=row;
+	setRow(column);
+	setColumn(saver);
     }
     
     /*
@@ -74,6 +84,13 @@ public class ComplexMatrix {
     public boolean isHermitian(){
         ComplexMatrix a = new ComplexMatrix(matrix);
         a.adjoint();
+	System.out.println(a.getMatrix(0,1));
+	System.out.println(this.getMatrix(0,1));
+	System.out.println(this.getMatrix(0,0));
+	System.out.println(a.getMatrix(0,0));
+	System.out.println(this.getMatrix(1,1));
+	System.out.println(a.getMatrix(1,1));
+	System.out.println(this.equals(a));
         return this.equals(a);
     }
 

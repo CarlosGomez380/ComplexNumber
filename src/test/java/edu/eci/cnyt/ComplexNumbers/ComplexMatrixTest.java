@@ -89,7 +89,7 @@ public class ComplexMatrixTest {
         a.setMatrix(0,0,new Complex(7,0));
         a.setMatrix(0,1,new Complex(6,5));
         a.setMatrix(1,0,new Complex(6,-5));
-        a.setMatrix(1,1,new Complex(0,-3));
+        a.setMatrix(1,1,new Complex(-3,0));
         assertTrue(a.isHermitian());
     }
 
