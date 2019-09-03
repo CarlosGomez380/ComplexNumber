@@ -1,6 +1,7 @@
-# Libreria de numeros complejos 
+﻿# Libreria de numeros complejos 
 
-This is a librery that introduces you all function about complex numbers.
+This is a library that introduces you into the Complex space.You can find out fuctions between Complex numbers, Complex Matrices and Complex Vectors. 
+In this project we are assuming that every real number is a complex number which can be written with its value as a Real component and 0 as a Imaginary component.  
 
 ## How to install:
 First at all, check out java and maven are downloaded and installed in your PC.
