@@ -1,17 +1,19 @@
-# Libreria de numeros complejos
+# Libreria de numeros complejos 
+
+This is a librery that introduces you all function about complex numbers.
 
 ## How to install:
 First at all, check out java and maven are downloaded and installed in your PC.
-Then clone this repository with the command ­
+Then clone this repository with the command Â­
 
-```git clone[repository's link]­``` 
+```git clone[repository's link]Â­``` 
 
 in the path that you want to save it.
 Afterwards, compile and install it with the next commands
 
-­```mvn package­```
+Â­```mvn packageÂ­```
 
-­```mvn install­```
+Â­```mvn installÂ­```
 
 ## Execute tests:
 For executing testd follow the command
@@ -36,3 +38,10 @@ For executing testd follow the command
 4. ADDITION: Make addition of two complex Matrices.
 5. SUBTRACTION: Make subtraction of two complex Matrices.
 6. SCALAR MULTIPLICATION: Make scalar multiplication between a complex and a matrix.
+7. HERMITIAN: Answers if the matrix is an hermitian one.
+8. UNITARY: Returns if the matrix is unitary or not.
+9. MULTIPLICATION: Make multiplication of two complex Matrices.
+10. INNERPRODUCT: Make inner product of two complex Matrices.
+11. NORM: Gives the norm of the vector.
+12. DISTANCE: Gives the distance between two matrices.
+13. TENSOR: Return the tensor product between two complex matrices.
