@@ -87,7 +87,7 @@ For executing testd follow the command
 2. CONJUGATE: Make conjugate of a matrix
 3. ADJOINT: Make adjoint of a matrix
 4. ADDITION: Make addition of two complex Matrices.
-
+![C:\Users\gemec\Downloads\ComplexNumber\Pictures] (addition1.png)
 <img Pictures = "addition1.png" />
 <img Pictures = "addition2.png" />
 
