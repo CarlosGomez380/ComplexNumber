@@ -1,7 +1,9 @@
 ﻿# Libreria de numeros complejos 
 
 This is a library introduces you into the Complex space.You can find out operations such as addition, subtraction, multiplication,etc. Between Complex numbers, Complex Matrices and Complex Vectors. 
+
 This library includes tensor product which is another, more important, method of combining vector spaces. It is important due to it is the fundamental building operation of quantum systems. 
+
 In this project we are assuming that every real number is a complex number which can be written with its value as a Real component and 0 as a Imaginary component. In addition, every vector is a matrix with just one column or row. 
 
 ## How to install:
