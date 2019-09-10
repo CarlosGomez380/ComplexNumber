@@ -10,8 +10,6 @@ In this project we are assuming that every real number is a complex number which
 First at all, check out java and maven are downloaded and installed in your PC.
 Then clone this repository with the command ­
 
-![addition1](https://user-images.githubusercontent.com/53835467/64620935-6857db00-d3aa-11e9-9d9a-2be801e867e5.PNG)
-
 ```git clone[repository's link]­``` 
 
 in the path that you want to save it.
@@ -90,46 +88,47 @@ For executing testd follow the command
 3. ADJOINT: Make adjoint of a matrix
 4. ADDITION: Make addition of two complex Matrices.
 
-![](Pictures\addition1.PNG)
+![addition1](https://user-images.githubusercontent.com/53835467/64621195-def4d880-d3aa-11e9-9a9b-683fc0c808a7.PNG)
 
-![](Pictures\addition2.PNG)
+![addition2](https://user-images.githubusercontent.com/53835467/64621004-845b7c80-d3aa-11e9-8330-5350f41d2d18.PNG)
 
 5. SUBTRACTION: Make subtraction of two complex Matrices.
-![](Pictures\inverse1.PNG)
 
-![](Pictures\inverse2.PNG)
+![inverse1](https://user-images.githubusercontent.com/53835467/64621244-f5029900-d3aa-11e9-869e-96ecb89b860a.PNG)
 
-![](Pictures\subtraction.PNG)
+![inverse2](https://user-images.githubusercontent.com/53835467/64621263-fe8c0100-d3aa-11e9-97f0-03f929b4dbf6.PNG)
+
+![subtraction](https://user-images.githubusercontent.com/53835467/64621294-0c418680-d3ab-11e9-918b-7737ffcbe245.PNG)
 
 6. SCALAR MULTIPLICATION: Make scalar multiplication between a complex and a matrix.
 
-![](Pictures\scalar1.PNG)
+![scalar1](https://user-images.githubusercontent.com/53835467/64621322-1b283900-d3ab-11e9-9db1-b54856e19f06.PNG)
 
-![](Pictures\scalar2.PNG)
+![scalar2](https://user-images.githubusercontent.com/53835467/64621338-224f4700-d3ab-11e9-9ff1-ddb99779fb30.PNG)
 
 7. HERMITIAN: Answers if the matrix is an hermitian one.
 
-![](Pictures\hermitian.PNG)
+![hermitian](https://user-images.githubusercontent.com/53835467/64621366-2bd8af00-d3ab-11e9-949d-a840abd52949.PNG)
 
 8. UNITARY: Returns if the matrix is unitary or not.
 
-![](Pictures\unitary.PNG)
+![unitary](https://user-images.githubusercontent.com/53835467/64621390-36934400-d3ab-11e9-9bc1-7ef574210200.PNG)
 
 9. MULTIPLICATION: Make multiplication of two complex Matrices.
 
-![](Pictures\multiplication1.PNG)
+![multiplication1](https://user-images.githubusercontent.com/53835467/64621443-4b6fd780-d3ab-11e9-803c-60d228cb8f4e.PNG)
 
-![](Pictures\multiplication2.PNG)
+![multiplication2](https://user-images.githubusercontent.com/53835467/64621463-5296e580-d3ab-11e9-9a20-5e8991d47817.PNG)
 
 10. INNERPRODUCT: Make inner product of two complex Matrices.
 
-![](Pictures\inner.PNG)
+![inner](https://user-images.githubusercontent.com/53835467/64621421-4448c980-d3ab-11e9-86dd-b353e6a39a33.PNG)
 
 11. NORM: Gives the norm of the vector.
 
-![](Pictures\norm.PNG)
+![norm](https://user-images.githubusercontent.com/53835467/64621481-5c204d80-d3ab-11e9-9493-5b457ba3f144.PNG)
 
 12. DISTANCE: Gives the distance between two matrices.
 13. TENSOR: Return the tensor product between two complex matrices.
 
-![](Pictures\tensor.PNG)
+![tensor](https://user-images.githubusercontent.com/53835467/64621501-680c0f80-d3ab-11e9-8841-05476d72d452.PNG)
