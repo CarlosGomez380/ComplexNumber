@@ -128,11 +128,11 @@ For executing testd follow the command
    ``` A*B= [[26-52i,60+24i, 26][9+7i,1+29i,14][48-21i,15+22i,20-22i]] ```  
 10. INNERPRODUCT: Make inner product of two complex Matrices.
 
-   ``` <[5,3,-7],[6,2,0]> = [5,3,-7]* [6,2,0]=(5x6) + (3x2) + (-7x0)= 36  ```
+    ``` <[5,3,-7],[6,2,0]> = [5,3,-7]* [6,2,0]=(5x6) + (3x2) + (-7x0)= 36 ```
 
 11. NORM: Gives the norm of the vector.
 
-   ``` |[3,-6,2]|= √(<[3,-6,2],[3,-6,2]>)=√49=7  ```
+    ``` |[3,-6,2]|= √(<[3,-6,2],[3,-6,2]>)=√49=7 ```
 
 12. DISTANCE: Gives the distance between two matrices.
 13. TENSOR: Return the tensor product between two complex matrices.
