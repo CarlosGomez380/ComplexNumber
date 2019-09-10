@@ -132,7 +132,7 @@ For executing testd follow the command
 
 11. NORM: Gives the norm of the vector.
 
-``` |[3,-6,2]|= √(<[3,-6,2],[3,-6,2]>)=√49=7  ```
+   ``` |[3,-6,2]|= √(<[3,-6,2],[3,-6,2]>)=√49=7  ```
 
 12. DISTANCE: Gives the distance between two matrices.
 13. TENSOR: Return the tensor product between two complex matrices.
