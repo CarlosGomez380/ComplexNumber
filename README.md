@@ -87,16 +87,47 @@ For executing testd follow the command
 2. CONJUGATE: Make conjugate of a matrix
 3. ADJOINT: Make adjoint of a matrix
 4. ADDITION: Make addition of two complex Matrices.
-![C:\Users\gemec\Downloads\ComplexNumber\Pictures] (addition1.png)
-<img Pictures = "addition1.png" />
-<img Pictures = "addition2.png" />
+
+![](Pictures\addition1.PNG)
+
+![](Pictures\addition2.PNG)
 
 5. SUBTRACTION: Make subtraction of two complex Matrices.
+![](Pictures\inverse1.PNG)
+
+![](Pictures\inverse2.PNG)
+
+![](Pictures\subtraction.PNG)
+
 6. SCALAR MULTIPLICATION: Make scalar multiplication between a complex and a matrix.
+
+![](Pictures\scalar1.PNG)
+
+![](Pictures\scalar2.PNG)
+
 7. HERMITIAN: Answers if the matrix is an hermitian one.
+
+![](Pictures\hermitian.PNG)
+
 8. UNITARY: Returns if the matrix is unitary or not.
+
+![](Pictures\unitary.PNG)
+
 9. MULTIPLICATION: Make multiplication of two complex Matrices.
+
+![](Pictures\multiplication1.PNG)
+
+![](Pictures\multiplication2.PNG)
+
 10. INNERPRODUCT: Make inner product of two complex Matrices.
+
+![](Pictures\inner.PNG)
+
 11. NORM: Gives the norm of the vector.
+
+![](Pictures\norm.PNG)
+
 12. DISTANCE: Gives the distance between two matrices.
 13. TENSOR: Return the tensor product between two complex matrices.
+
+![](Pictures\tensor.PNG)
