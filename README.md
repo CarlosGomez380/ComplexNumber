@@ -89,6 +89,7 @@ For executing testd follow the command
 4. ADDITION: Make addition of two complex Matrices.
 
 <img Pictures = "addition1.png" />
+<img Pictures = "addition2.png" />
 
 5. SUBTRACTION: Make subtraction of two complex Matrices.
 6. SCALAR MULTIPLICATION: Make scalar multiplication between a complex and a matrix.
