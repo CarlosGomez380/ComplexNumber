@@ -22,7 +22,7 @@ public class ComplexMatrix {
 
     /**
      * Complex matrix constructor
-     * @param matrix Static Matrix with complex numbers in it.
+     * @param matrix1 Static Matrix with complex numbers in it.
      */
     public ComplexMatrix(Complex[][] matrix1) {
 	row= matrix1.length;
@@ -72,6 +72,17 @@ public class ComplexMatrix {
         this.conjugateMatrix();
     }
     
+    /**
+     * Makes the inverse form of the complex matrix.
+     */
+    public void inverse() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                matrix[i][j].inverse();
+            }
+        }
+    }
+    
     public boolean isVector(){
         return (column == 1 || row == 1) && column!= row;
     }
@@ -89,7 +100,7 @@ public class ComplexMatrix {
     /**
      * Returns if the matrix is unitary or not.
      * @return true if the matrix is unitary, false if not.
-     * @throws MathComplexException
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     public boolean isUnitary() throws ComplexException {
         if(getColumn()!=getRow()){

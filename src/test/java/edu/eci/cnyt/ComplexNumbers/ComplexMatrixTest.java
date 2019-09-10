@@ -67,6 +67,38 @@ public class ComplexMatrixTest {
         assertEquals(a,b);
     }
 
+    @Test
+    public void transpose() {
+        ComplexMatrix a =new ComplexMatrix(4,1);
+        a.setMatrix(0,0,new Complex(6,-4));
+        a.setMatrix(1,0,new Complex(7,3));
+        a.setMatrix(2,0,new Complex(4.2,-8.1));
+        a.setMatrix(3,0,new Complex(0,-3));
+        ComplexMatrix b =new ComplexMatrix(1,4);
+        b.setMatrix(0,0,new Complex(6,-4));
+        b.setMatrix(0,1,new Complex(7,3));
+        b.setMatrix(0,2,new Complex(4.2,-8.1));
+        b.setMatrix(0,3,new Complex(0,-3));
+        a.transpose();
+        assertEquals(a,b);
+    }
+    
+    @Test
+    public void inverse() {
+        ComplexMatrix a =new ComplexMatrix(4,1);
+        a.setMatrix(0,0,new Complex(6,-4));
+        a.setMatrix(1,0,new Complex(7,3));
+        a.setMatrix(2,0,new Complex(4.2,-8.1));
+        a.setMatrix(3,0,new Complex(0,-3));
+        ComplexMatrix b =new ComplexMatrix(4,1);
+        b.setMatrix(0,0,new Complex(-6,4));
+        b.setMatrix(1,0,new Complex(-7,-3));
+        b.setMatrix(2,0,new Complex(-4.2,8.1));
+        b.setMatrix(3,0,new Complex(0,3));
+        a.inverse();
+        assertEquals(a,b);
+    }
+    
     /**
      * Test of is Vector method, of class ComplexMatrix.
      */

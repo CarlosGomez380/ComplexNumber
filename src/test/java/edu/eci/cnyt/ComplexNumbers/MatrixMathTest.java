@@ -31,6 +31,7 @@ public class MatrixMathTest {
 
     /**
      * Test of addMatrix method, of class MatrixMath.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     @Test
     public void testAddMatrix() throws ComplexException{
@@ -51,9 +52,34 @@ public class MatrixMathTest {
         c.setMatrix(3,0,new Complex(0,-7));
         assertEquals(MatrixMath.addMatrix(a,b),c);
     }
+    
+    /**
+     * Test of addMatrix method, of class MatrixMath.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
+     */
+    @Test
+    public void testAddMatrix1() throws ComplexException{
+        ComplexMatrix a =new ComplexMatrix(2,2);
+        a.setMatrix(0,0,new Complex(1,1));
+        a.setMatrix(0,1, new Complex(2,2));
+        a.setMatrix(1,0,new Complex(1,1));
+        a.setMatrix(1,1, new Complex(2,2));
+        ComplexMatrix b =new ComplexMatrix(2,2);
+        b.setMatrix(0,0,new Complex(1,1));
+        b.setMatrix(0,1, new Complex(2,2));
+        b.setMatrix(1,0,new Complex(1,1));
+        b.setMatrix(1,1, new Complex(2,2));
+        ComplexMatrix c =new ComplexMatrix(2,2);
+        c.setMatrix(0,0,new Complex(2,2));
+        c.setMatrix(0,1,new Complex(4,4));
+        c.setMatrix(1,0,new Complex(2,2));
+        c.setMatrix(1,1,new Complex(4,4));
+        assertEquals(MatrixMath.addMatrix(a,b),c);
+    }
 
     /**
      * Test of subtractionMatrix method, of class MatrixMath.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     @Test
     public void testSubtractionMatrix() throws ComplexException{
@@ -76,6 +102,29 @@ public class MatrixMathTest {
     }
 
     /**
+     * Test of addMatrix method, of class MatrixMath.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
+     */
+    @Test
+    public void testSubtractionMatrix1() throws ComplexException{
+        ComplexMatrix a =new ComplexMatrix(2,2);
+        a.setMatrix(0,0,new Complex(1,1));
+        a.setMatrix(0,1, new Complex(2,2));
+        a.setMatrix(1,0,new Complex(1,1));
+        a.setMatrix(1,1, new Complex(2,2));
+        ComplexMatrix b =new ComplexMatrix(2,2);
+        b.setMatrix(0,0,new Complex(1,1));
+        b.setMatrix(0,1, new Complex(2,2));
+        b.setMatrix(1,0,new Complex(1,1));
+        b.setMatrix(1,1, new Complex(2,2));
+        ComplexMatrix c =new ComplexMatrix(2,2);
+        c.setMatrix(0,0,new Complex(0,0));
+        c.setMatrix(0,1,new Complex(0,0));
+        c.setMatrix(1,0,new Complex(0,0));
+        c.setMatrix(1,1,new Complex(0,0));
+        assertEquals(MatrixMath.subtractionMatrix(a,b),c);
+    }
+    /**
      * Test of scalarProduct method, of class MatrixMath.
      */
     @Test
@@ -96,6 +145,7 @@ public class MatrixMathTest {
 
     /**
      * Test of MultiplicationMatrix method, of class MatrixMath.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     @Test
     public void testMultiplicactionMatrix() throws ComplexException{
@@ -134,6 +184,7 @@ public class MatrixMathTest {
     
     /**
      * Test of innerProduct method, of class MatrixMath.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     @Test
     public void testInnerProduct() throws ComplexException{
@@ -151,6 +202,7 @@ public class MatrixMathTest {
 
     /**
      * Test of norm method, of class ComplexMatrix.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     @Test
     public void testnorm() throws ComplexException{
@@ -164,6 +216,7 @@ public class MatrixMathTest {
 
     /**
      * Test of distanceMatrix method, of class ComplexMatrix.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     @Test
     public void testDistanceMatrix() throws ComplexException{
@@ -197,4 +250,22 @@ public class MatrixMathTest {
         c.setMatrix(5,0,new Complex(9,0));
         assertEquals(MatrixMath.tensorProduct(a, b), c);
     }
+    
+    /**
+    @Test
+    void action() throws ComplexException {
+        ComplexMatrix a =new ComplexMatrix(2,2);
+        a.setMatrix(0,0,new Complex5,0));
+        a.setMatrix(1,0,new Complex(3,3));
+        a.setMatrix(0,1,new Complex(-7,-4));
+        a.setMatrix(1,1,new Complex(-7,0));
+        ComplexMatrix b =new ComplexMatrix(2,1);
+        b.setMatrix(0,0,new Complex(5,0));
+        b.setMatrix(1,0,new Complex(3,-4));
+        ComplexMatrix c =new ComplexMatrix(2,1);
+        c.setMatrix(0,0,new Complex(-12,16));
+        c.setMatrix(1,0,new Complex(-6,43));
+        assertEquals(MathComplex.action(a,b),c);
+    }
+    */
 }

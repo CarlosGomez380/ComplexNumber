@@ -56,6 +56,18 @@ public class Complex {
     }
 
     /**
+     * Apply the inverse form on the complex number.
+     */
+    public void inverse() {
+        if (real != 0) {
+            real = -real;
+        }
+        if (imag != 0) {
+            imag = -imag;
+        }
+    }
+    
+    /**
      * @return the real part of a complex number.
      */
     public double getReal() {

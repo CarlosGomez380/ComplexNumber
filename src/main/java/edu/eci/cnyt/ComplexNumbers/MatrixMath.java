@@ -66,7 +66,7 @@ public class MatrixMath {
     }
     
     /**
-     * Make subtraction of two complex Matrices.
+     * Make multiplication of two complex Matrices.
      * 
      * @param matrix1 First matrix to subtract.
      * @param matrix2 Second matrix to subtract.
@@ -93,7 +93,25 @@ public class MatrixMath {
     }
     
     /**
-     * Make subtraction of two complex Matrices.
+     * Multiplies a complex matrix n*n with a vector n
+     * 
+     * @param matrix1 Complex matrix of n*n
+     * @param matrix2 Complex vector of n
+     * @return Action operation between a and b.
+     * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
+     */
+    public static  ComplexMatrix action(ComplexMatrix matrix1,ComplexMatrix matrix2) throws ComplexException {
+        if(matrix1.getColumn()!=matrix1.getRow()){
+            throw new ComplexException("The given matrix must be a square one.");
+        }else if(matrix1.getRow()!=matrix2.getColumn() || !matrix2.isVector()){
+            throw new ComplexException("matrix2 must be a complex vector with same row lenght of matrix matrix1");
+        }else{
+            return multiplicationMatrix(matrix1,matrix2);
+        }
+    }
+    
+    /**
+     * Make the Inner Product of two complex Matrices.
      * 
      * @param matrix1 First matrix to subtract.
      * @param matrix2 Second matrix to subtract.
@@ -162,8 +180,8 @@ public class MatrixMath {
 
     /**
      * Return the tensor product between two complex matrices.
-     * @param a complex matrix
-     * @param b complex matrix
+     * @param matrix1 complex matrix
+     * @param matrix2 complex matrix
      * @return tensor product between a and b.
      */
     public static ComplexMatrix tensorProduct(ComplexMatrix matrix1, ComplexMatrix matrix2){
