@@ -87,6 +87,9 @@ For executing testd follow the command
 2. CONJUGATE: Make conjugate of a matrix
 3. ADJOINT: Make adjoint of a matrix
 4. ADDITION: Make addition of two complex Matrices.
+
+<img Pictures = "addition1.png" />
+
 5. SUBTRACTION: Make subtraction of two complex Matrices.
 6. SCALAR MULTIPLICATION: Make scalar multiplication between a complex and a matrix.
 7. HERMITIAN: Answers if the matrix is an hermitian one.
