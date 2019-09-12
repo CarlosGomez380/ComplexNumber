@@ -14,16 +14,25 @@ Then clone this repository with the command ­
 
 ```git clone[repository's link]­``` 
 
+![Clone](https://user-images.githubusercontent.com/53835467/64828229-23d86500-d58d-11e9-922e-99b81056ac75.PNG)
+
 in the path that you want to save it.
 Afterwards, compile and install it with the next commands
 
 ­```mvn package­```
 
+![package](https://user-images.githubusercontent.com/53835467/64828256-35ba0800-d58d-11e9-85e8-60715780fb3a.PNG)
+
 ­```mvn install­```
+
+![install](https://user-images.githubusercontent.com/53835467/64828268-3e124300-d58d-11e9-87be-a7dbeae3251a.PNG)
 
 ## Execute tests:
 For executing testd follow the command
+
 ```mvn test```
+
+![test](https://user-images.githubusercontent.com/53835467/64828285-5c783e80-d58d-11e9-8206-af0228580b81.PNG)
 
 ## Complex Numbers Functions:
 
@@ -137,3 +146,12 @@ For executing testd follow the command
 12. DISTANCE: Gives the distance between two matrices.
 13. TENSOR: Return the tensor product between two complex matrices.
 
+## Some tests:
+
+![adjoint](https://user-images.githubusercontent.com/53835467/64828512-68b0cb80-d58e-11e9-9901-fab596bc805c.PNG)
+
+![innerProduct](https://user-images.githubusercontent.com/53835467/64828523-723a3380-d58e-11e9-9111-40c90817c72e.PNG)
+
+## Executing tests - Results:
+
+![testRun](https://user-images.githubusercontent.com/53835467/64828356-b5e06d80-d58d-11e9-8ffe-fadfe9ea742b.PNG)
