@@ -197,4 +197,37 @@ public class MatrixMath {
         }
         return answer;
     }
+    
+    public static ComplexMatrix matrixRecursive(ComplexMatrix matrix1,ComplexMatrix matrix2, int clicks) throws ComplexException{
+        if(matrix1.getColumn() == matrix2.getRow()){
+            if(clicks==1){
+                return matrix1;
+            }else{
+                ComplexMatrix matrix3= multiplicationMatrix(matrix1,matrix2);
+                return matrixRecursive(matrix3,matrix2,clicks-1);
+            }
+        }else{
+            throw new ComplexException("Both matrices have different dimesions");
+        }
+    }
+
+    public static ComplexMatrix marbles(ComplexMatrix matrix, ComplexMatrix vector, int clicks) throws ComplexException{
+        if(matrix.getColumn() == vector.getRow() && clicks>0 && vector.isVector()){
+            ComplexMatrix answ= new ComplexMatrix(vector.getRow(),1);
+            ComplexMatrix matrix1=matrixRecursive(matrix,matrix,clicks);
+            for (int i=0; i<matrix1.getRow(); i++){
+                Complex value =new Complex(0,0);
+                for (int j=0;j<vector.getRow();j++){
+                    System.out.println(matrix1.getMatrix(i,j));
+                    System.out.println(vector.getMatrix(j,0));
+                    value = ComplexMath.add(ComplexMath.multiplication(matrix1.getMatrix(i,j), vector.getMatrix(j,0)) , value);
+                    System.out.println(value);
+                }
+                answ.setMatrix(i,0,value );
+            }
+            return answ;
+        }else{
+            throw new ComplexException("The matrix and vector have different dimesions");
+        }
+    }
 }
