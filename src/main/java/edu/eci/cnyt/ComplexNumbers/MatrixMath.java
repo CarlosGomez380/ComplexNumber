@@ -218,10 +218,14 @@ public class MatrixMath {
             for (int i=0; i<matrix1.getRow(); i++){
                 Complex value =new Complex(0,0);
                 for (int j=0;j<vector.getRow();j++){
+                    /**
                     System.out.println(matrix1.getMatrix(i,j));
                     System.out.println(vector.getMatrix(j,0));
+                    */
                     value = ComplexMath.add(ComplexMath.multiplication(matrix1.getMatrix(i,j), vector.getMatrix(j,0)) , value);
+                    /**
                     System.out.println(value);
+                    */
                 }
                 answ.setMatrix(i,0,value );
             }

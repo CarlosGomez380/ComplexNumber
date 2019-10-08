@@ -251,9 +251,10 @@ public class MatrixMathTest {
         assertEquals(MatrixMath.tensorProduct(a, b), c);
     }
     
+    
     /**
      * Test of marbles method, of class ComplexMatrix.
-     */
+    */
     @Test
     public void testMarbles() throws ComplexException {
         ComplexMatrix a =new ComplexMatrix(6,6);
@@ -307,6 +308,7 @@ public class MatrixMathTest {
         c.setMatrix(3,0,new Complex(5,0));
         c.setMatrix(4,0,new Complex(1,0));
         c.setMatrix(5,0,new Complex(9,0));
+        
         ComplexMatrix answ= MatrixMath.marbles(a,b,1);
         assertEquals(c,answ);
     }
@@ -316,7 +318,7 @@ public class MatrixMathTest {
      */
     @Test
     public void testMarbles1() throws ComplexException {
-        ComplexMatrix a =new ComplexMatrix(8,8);
+        ComplexMatrix a = new ComplexMatrix(8,8);
         a.setMatrix(0,0,new Complex(0,0));
         a.setMatrix(0,1,new Complex(0,0));
         a.setMatrix(0,2,new Complex(0,0));
@@ -390,18 +392,125 @@ public class MatrixMathTest {
         b.setMatrix(5,0,new Complex(0,0));
         b.setMatrix(6,0,new Complex(0,0));
         b.setMatrix(7,0,new Complex(0,0));
+        ComplexMatrix d =new ComplexMatrix(8,1);
+        d.setMatrix(0,0,new Complex(0,0));
+        d.setMatrix(1,0,new Complex(0,0));
+        d.setMatrix(2,0,new Complex(0,0));
+        d.setMatrix(3,0,new Complex(1/6,0));
+        d.setMatrix(4,0,new Complex(1/6,0));
+        d.setMatrix(5,0,new Complex(1/3,0));
+        d.setMatrix(6,0,new Complex(1/6,0));
+        d.setMatrix(7,0,new Complex(1/6,0));
+        ComplexMatrix answ= MatrixMath.marbles(a,b,2);
+        System.out.println(answ.getMatrix(0,0));
+        System.out.println(answ.getMatrix(1,0));
+        System.out.println(answ.getMatrix(2,0));
+        System.out.println(answ.getMatrix(3,0));
+        System.out.println(answ.getMatrix(4,0));
+        System.out.println(answ.getMatrix(5,0));
+        System.out.println(answ.getMatrix(6,0));
+        System.out.println(answ.getMatrix(7,0));
+        assertEquals(d,answ); 
+    }
+    
+    /**
+     * Test of marbles method, of class ComplexMatrix.
+    */
+    @Test
+    public void testMarbles2() throws ComplexException {
+        ComplexMatrix a =new ComplexMatrix(8,8);
+        a.setMatrix(0,0,new Complex(0,0));
+        a.setMatrix(0,1,new Complex(0,0));
+        a.setMatrix(0,2,new Complex(0,0));
+        a.setMatrix(0,3,new Complex(0,0));
+        a.setMatrix(0,4,new Complex(0,0));
+        a.setMatrix(0,5,new Complex(0,0));
+        a.setMatrix(0,6,new Complex(0,0));
+        a.setMatrix(0,7,new Complex(0,0));
+        a.setMatrix(1,0,new Complex(1/Math.sqrt(2),0));
+        a.setMatrix(1,1,new Complex(0,0));
+        a.setMatrix(1,2,new Complex(0,0));
+        a.setMatrix(1,3,new Complex(0,0));
+        a.setMatrix(1,4,new Complex(0,0));
+        a.setMatrix(1,5,new Complex(0,0));
+        a.setMatrix(1,6,new Complex(0,0));
+        a.setMatrix(1,7,new Complex(0,0));
+        a.setMatrix(2,0,new Complex(1/Math.sqrt(2),0));
+        a.setMatrix(2,1,new Complex(0,0));
+        a.setMatrix(2,2,new Complex(0,0));
+        a.setMatrix(2,3,new Complex(0,0));
+        a.setMatrix(2,4,new Complex(0,0));
+        a.setMatrix(2,5,new Complex(0,0));
+        a.setMatrix(2,6,new Complex(0,0));
+        a.setMatrix(2,7,new Complex(0,0));
+        a.setMatrix(3,0,new Complex(0,0));
+        a.setMatrix(3,1,new Complex(-1/Math.sqrt(6),1/Math.sqrt(6)));
+        a.setMatrix(3,2,new Complex(0,0));
+        a.setMatrix(3,3,new Complex(1,0));
+        a.setMatrix(3,4,new Complex(0,0));
+        a.setMatrix(3,5,new Complex(0,0));
+        a.setMatrix(3,6,new Complex(0,0));
+        a.setMatrix(3,7,new Complex(0,0));
+        a.setMatrix(4,0,new Complex(0,0));
+        a.setMatrix(4,1,new Complex(-1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.setMatrix(4,2,new Complex(0,0));
+        a.setMatrix(4,3,new Complex(0,0));
+        a.setMatrix(4,4,new Complex(1,0));
+        a.setMatrix(4,5,new Complex(0,0));
+        a.setMatrix(4,6,new Complex(0,0));
+        a.setMatrix(4,7,new Complex(0,0));
+        a.setMatrix(5,0,new Complex(0,0));
+        a.setMatrix(5,1,new Complex(1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.setMatrix(5,2,new Complex(-1/Math.sqrt(6),1/Math.sqrt(6)));
+        a.setMatrix(5,3,new Complex(0,0));
+        a.setMatrix(5,4,new Complex(0,0));
+        a.setMatrix(5,5,new Complex(1,0));
+        a.setMatrix(5,6,new Complex(0,0));
+        a.setMatrix(5,7,new Complex(0,0));
+        a.setMatrix(6,0,new Complex(0,0));
+        a.setMatrix(6,1,new Complex(0,0));
+        a.setMatrix(6,2,new Complex(-1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.setMatrix(6,3,new Complex(0,0));
+        a.setMatrix(6,4,new Complex(0,0));
+        a.setMatrix(6,5,new Complex(0,0));
+        a.setMatrix(6,6,new Complex(1,0));
+        a.setMatrix(6,7,new Complex(0,0));
+        a.setMatrix(7,0,new Complex(0,0));
+        a.setMatrix(7,1,new Complex(0,0));
+        a.setMatrix(7,2,new Complex(1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.setMatrix(7,3,new Complex(0,0));
+        a.setMatrix(7,4,new Complex(0,0));
+        a.setMatrix(7,5,new Complex(0,0));
+        a.setMatrix(7,6,new Complex(0,0));
+        a.setMatrix(7,7,new Complex(1,0));
+        ComplexMatrix b =new ComplexMatrix(8,1);
+        b.setMatrix(0,0,new Complex(1,0));
+        b.setMatrix(1,0,new Complex(0,0));
+        b.setMatrix(2,0,new Complex(0,0));
+        b.setMatrix(3,0,new Complex(0,0));
+        b.setMatrix(4,0,new Complex(0,0));
+        b.setMatrix(5,0,new Complex(0,0));
+        b.setMatrix(6,0,new Complex(0,0));
+        b.setMatrix(7,0,new Complex(0,0));
         ComplexMatrix c =new ComplexMatrix(8,1);
         c.setMatrix(0,0,new Complex(0,0));
-        c.setMatrix(1,0,new Complex(0,0));
-        c.setMatrix(2,0,new Complex(0,0));
+        c.setMatrix(1,0,new Complex(0,0.7071));
+        c.setMatrix(2,0,new Complex(0,0.7071));
         c.setMatrix(3,0,new Complex(1/6,0));
         c.setMatrix(4,0,new Complex(1/6,0));
         c.setMatrix(5,0,new Complex(1/3,0));
         c.setMatrix(6,0,new Complex(1/6,0));
         c.setMatrix(7,0,new Complex(1/6,0));
         ComplexMatrix answ= MatrixMath.marbles(a,b,1);
-        assertEquals(c,answ);
-        
+        System.out.println(answ.getMatrix(0,0));
+        System.out.println(answ.getMatrix(1,0));
+        System.out.println(answ.getMatrix(2,0));
+        System.out.println(answ.getMatrix(3,0));
+        System.out.println(answ.getMatrix(4,0));
+        System.out.println(answ.getMatrix(5,0));
+        System.out.println(answ.getMatrix(6,0));
+        System.out.println(answ.getMatrix(7,0));
+        assertEquals(c,answ); 
     }
-
+    
 }
