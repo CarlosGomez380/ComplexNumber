@@ -152,6 +152,11 @@ For executing testd follow the command
 
 ![innerProduct](https://user-images.githubusercontent.com/53835467/64828523-723a3380-d58e-11e9-9111-40c90817c72e.PNG)
 
+![methot](https://user-images.githubusercontent.com/53835467/67323537-37ee7b00-f4d8-11e9-8131-ae1af9d5dbbe.PNG)
+
+![methot2](https://user-images.githubusercontent.com/53835467/67323583-49378780-f4d8-11e9-85e0-a1cbac44d225.PNG)
+
+
 ## Executing tests - Results:
 
 ![testRun](https://user-images.githubusercontent.com/53835467/64828356-b5e06d80-d58d-11e9-8ffe-fadfe9ea742b.PNG)
