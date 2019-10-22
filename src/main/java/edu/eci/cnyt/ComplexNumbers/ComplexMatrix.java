@@ -84,7 +84,7 @@ public class ComplexMatrix {
     }
     
     public boolean isVector(){
-        return (column == 1 || row == 1) && column!= row;
+        return (getColumn() == 1 || getRow() == 1) && getColumn()!= getRow();
     }
 
     /**

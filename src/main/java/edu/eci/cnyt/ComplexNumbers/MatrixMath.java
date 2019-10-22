@@ -1,5 +1,7 @@
 package edu.eci.cnyt.ComplexNumbers;
 
+import java.util.ArrayList;
+
 public class MatrixMath {
     
     /**
@@ -74,6 +76,7 @@ public class MatrixMath {
      * @throws edu.eci.cnyt.ComplexNumbers.ComplexException
      */
     public static ComplexMatrix multiplicationMatrix(ComplexMatrix matrix1,ComplexMatrix matrix2)throws ComplexException{
+        
         if(matrix1.getColumn() == matrix2.getRow()){
             ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix2.getColumn());
             for (int i=0; i<matrix1.getRow(); i++){
@@ -88,7 +91,7 @@ public class MatrixMath {
             return answ;
         }
         else{
-            throw new ComplexException("Both matrices have different dimesions");
+            throw new ComplexException("Both matrices have different dimesioness");
         }
     }
     
@@ -120,7 +123,7 @@ public class MatrixMath {
      */
     public static Complex innerProduct(ComplexMatrix matrix1,ComplexMatrix matrix2)throws ComplexException{
 	Complex res= new Complex(0,0);
-        if(matrix1.isVector()==true && matrix2.isVector()==true){
+        if(matrix1.isVector()&& matrix2.isVector()){
 		matrix1.adjoint();
 		ComplexMatrix answ = multiplicationMatrix(matrix1,matrix2);
 		for (int i=0; i<answ.getRow(); i++){
@@ -130,7 +133,8 @@ public class MatrixMath {
 		}
 		return res;		
 	}
-	else if (matrix1.getRow()==matrix1.getColumn() && matrix2.getRow()==matrix2.getColumn() && matrix1.getRow()==matrix2.getColumn()){
+	else if ( matrix1.getColumn()==matrix2.getRow()){
+                
 		matrix1.adjoint();
 		ComplexMatrix answ= new ComplexMatrix(matrix1.getRow(),matrix2.getColumn());
 		answ=multiplicationMatrix(matrix1,matrix2);
@@ -218,14 +222,7 @@ public class MatrixMath {
             for (int i=0; i<matrix1.getRow(); i++){
                 Complex value =new Complex(0,0);
                 for (int j=0;j<vector.getRow();j++){
-                    /**
-                    System.out.println(matrix1.getMatrix(i,j));
-                    System.out.println(vector.getMatrix(j,0));
-                    */
                     value = ComplexMath.add(ComplexMath.multiplication(matrix1.getMatrix(i,j), vector.getMatrix(j,0)) , value);
-                    /**
-                    System.out.println(value);
-                    */
                 }
                 answ.setMatrix(i,0,value );
             }
@@ -233,5 +230,66 @@ public class MatrixMath {
         }else{
             throw new ComplexException("The matrix and vector have different dimesions");
         }
+    }
+    
+    /**
+     * This method returns mean value
+     * @param observable Observable matrix
+     * @param ket ket vector
+     * @return the mean value between both
+     * @throws ComplexException
+     */
+    public static Complex mean(ComplexMatrix observable,ComplexMatrix ket) throws ComplexException {
+        if(!ket.isVector()){
+            throw new ComplexException("Ket is not a vector");
+        }
+        ComplexMatrix answ= multiplicationMatrix(observable,ket);
+        return innerProduct(answ,ket);
+    }
+
+    /**
+     * This method returns the variance
+     * @param observable observable matrix
+     * @param ket Ket vector
+     * @return The variance.
+     * @throws ComplexException
+     */
+    public static Complex variance(ComplexMatrix observable, ComplexMatrix ket) throws ComplexException {
+        Complex c = mean(observable,ket);
+        ComplexMatrix identity = new ComplexMatrix(observable.getRow(),observable.getColumn());
+        for(int i =0;i<observable.getRow();i++){
+            for(int j =0;j<observable.getColumn();j++){
+                if(i==j){
+                    identity.setMatrix(i,j,c);
+                }
+                else{
+                    identity.setMatrix(i,j,new Complex(0,0));
+                }
+            }
+        }
+        ComplexMatrix newKet= new ComplexMatrix(ket.getRow(),ket.getColumn());
+        for (int i=0; i<newKet.getRow(); i++){
+		for (int j=0; j<newKet.getColumn(); j++){
+			newKet.setMatrix(i,j,ket.getMatrix(i,j));
+		}
+	}
+        newKet.adjoint();
+        return innerProduct(multiplicationMatrix(newKet,multiplicationMatrix(subtractionMatrix(identity,observable),subtractionMatrix(identity,observable))),ket);
+
+    }
+    
+    /**
+     * This method Returns the Dinamic of the given System
+     * @param ket ket vector
+     * @param matrices Array of matrices
+     * @return result of the dinamic system
+     * @throws ComplexException
+     */
+    public static ComplexMatrix systemDinamic(ComplexMatrix ket, ArrayList<ComplexMatrix> matrices) throws ComplexException {
+        ComplexMatrix res = ket;
+        for(int i = 0; i< matrices.size(); i++){
+            res = multiplicationMatrix(matrices.get(i), res);
+        }
+        return res;
     }
 }
